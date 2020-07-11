@@ -1,0 +1,275 @@
+<html>
+
+    <head>
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    </head>
+
+    <style>
+        @charset "UTF-8";
+html {
+  font-size: 2vh;
+}
+@media screen and (min-height: 800px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media screen and (max-height: 500px) {
+  html {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+body {
+  max-width: 100vw;
+  -webkit-transition: -webkit-filter 1s;
+  transition: -webkit-filter 1s;
+  transition: filter 1s;
+  transition: filter 1s, -webkit-filter 1s;
+  -webkit-filter: hue-rotate(0deg);
+          filter: hue-rotate(0deg);
+    margin: 0 !important;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background: linear-gradient(160deg, #248f8f, #70dba6);
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  overflow: scroll;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-height: 90vh;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  font-size: 1rem;
+}
+
+.wrap {
+  max-width: 60vw;
+  -webkit-transition: opacity 200ms ease-out, -webkit-filter 200ms ease-out;
+  transition: opacity 200ms ease-out, -webkit-filter 200ms ease-out;
+  transition: filter 200ms ease-out, opacity 200ms ease-out;
+  transition: filter 200ms ease-out, opacity 200ms ease-out, -webkit-filter 200ms ease-out;
+}
+
+.blur {
+  -webkit-filter: blur(0.5rem);
+          filter: blur(0.5rem);
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in, -webkit-filter 200ms ease-in;
+  transition: opacity 200ms ease-in, -webkit-filter 200ms ease-in;
+  transition: filter 200ms ease-in, opacity 200ms ease-in;
+  transition: filter 200ms ease-in, opacity 200ms ease-in, -webkit-filter 200ms ease-in;
+  pointer-events: none;
+}
+
+.question,
+.answer {
+  text-shadow: 0 0.1rem 0.5rem #12a17d;
+  width: 100%;
+  text-align: center;
+}
+
+.question {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+
+.answer {
+  font-size: 2rem;
+}
+
+.button,
+.round-button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background: white;
+  border-radius: 3rem;
+  outline: none;
+  text-shadow: none;
+  color: #12a17d;
+  box-shadow: 0 0.1rem 0.5rem #12a17d;
+  -webkit-transition: box-shadow 200ms, opacity 200ms ease-out, -webkit-transform 200ms, -webkit-filter 200ms ease-out;
+  transition: box-shadow 200ms, opacity 200ms ease-out, -webkit-transform 200ms, -webkit-filter 200ms ease-out;
+  transition: box-shadow 200ms, transform 200ms, filter 200ms ease-out, opacity 200ms ease-out;
+  transition: box-shadow 200ms, transform 200ms, filter 200ms ease-out, opacity 200ms ease-out, -webkit-transform 200ms, -webkit-filter 200ms ease-out;
+  -webkit-transform: perspective(15rem);
+          transform: perspective(15rem);
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+}
+.button:hover:not(:active), .button:focus:not(:active),
+.round-button:hover:not(:active),
+.round-button:focus:not(:active) {
+  box-shadow: 0 0.3rem 1rem rgba(18, 161, 125, 0.5);
+  -webkit-transform: perspective(15rem) translateZ(1rem);
+          transform: perspective(15rem) translateZ(1rem);
+}
+
+
+.textarea {
+  resize: none;
+  padding: 2rem;
+  font-size: 2rem;
+  font-family: "Nunito", sans-serif;
+  border: none;
+  background: transparent;
+  color: white;
+  outline: none;
+  border-bottom: 2px solid white;
+  width: 20rem;
+  height: auto;
+}
+
+.sig {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 100;
+  font-family: sans-serif;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 2px;
+}
+
+input.question_input {
+    width: 500px;
+    border-radius: 20px;
+    height: 50px;
+    border: none;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-11 {
+  position: relative;
+  color: white;
+}
+.btn-11:before, .btn-11:after {
+  position: absolute;
+  top: 50%;
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+}
+.btn-11:before {
+  left: -20px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.btn-11:after {
+  right: -20px;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+.btn-11:hover {
+  color: #d8d6d8;
+  cursor: pointer;
+}
+.btn-11:hover:before {
+  -webkit-animation: criss-cross-left 0.8s both;
+          animation: criss-cross-left 0.8s both;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+.btn-11:hover:after {
+  -webkit-animation: criss-cross-right 0.8s both;
+          animation: criss-cross-right 0.8s both;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+.centerer {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 600px) {
+  .wrap {
+    width: 100%;
+    float: left;
+  }
+}
+[class^="btn-"] {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 80px;
+  max-width: 250px;
+  margin: 1rem auto;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  background: transparent;
+  font-size: 1em;
+}
+
+a, button {
+  text-decoration: none;
+  line-height: 80px;
+  /* color: black; */
+}
+
+html *,
+html *:before,
+html *:after {
+  box-sizing: border-box;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+    </style>
+    <body>
+
+<div class="container">
+    <button class="round-button blur" id="back"></button>
+    <div class="center">
+      <form id="dynamic">
+        <div class="wrap">
+          <div class="question">
+              <form action="" method="POST">
+                {% csrf_token %}
+                <input class='question_input' name="question_input" placeholder='Your Question Here...'>
+                <br>
+                <button type="submit" formmethod="post" class="btn-11">Answer</button>
+                
+              </form>
+          </div>
+          <div class="answer">
+              Answer: {{answer}}
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="remaining"></div>
+
+
+    </body>
+</html>
