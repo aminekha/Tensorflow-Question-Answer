@@ -1,4 +1,4 @@
 tensorflow==2.0.1
-django==2.2.13
+django==2.2.24
 numpy
 tensorflow_text
